@@ -2,14 +2,14 @@ IMAGE=jacky1999cn2000/youtuber
 GIT_HASH=$(shell git rev-parse --short HEAD)
 
 install:
-	docker run -i --rm --name install -v `pwd`:/usr/src/app -w /usr/src/app node:6 npm install
+	docker run -i --rm --name install -v `pwd`:/usr/src/app -w /usr/src/app node:8 npm install
 
 run: install
 	docker-compose down
 	docker-compose up
 
 bash:
-	docker run -it --rm -v `pwd`:/usr/src/app -w /usr/src/app --entrypoint="bash" node:6
+	docker run -it --rm -v `pwd`:/usr/src/app -w /usr/src/app --entrypoint="bash" node:8
 
 build_image: install version
 	$(info GIT_HASH: $(GIT_HASH))

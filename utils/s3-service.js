@@ -10,8 +10,8 @@ module.exports = {
   getManifest: function() {
 
     let getParams = {
-      Bucket: 'youtube-farming',
-      Key: 'test/manifest.json'
+      Bucket: process.env.S3_BUCKET,
+      Key: process.env.project + '/manifest.json'
     }
 
     let p = new Promise(function(resolve, reject) {

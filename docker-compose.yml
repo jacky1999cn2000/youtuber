@@ -1,6 +1,6 @@
 version: '2'
 services:
-  youtuber:
+  test:
     build: .
     volumes:
       - .:/usr/src/app

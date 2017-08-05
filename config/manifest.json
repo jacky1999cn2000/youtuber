@@ -1,0 +1,24 @@
+{
+  "metadata":{
+    "email":"liang.zhao.sfdc01@gmail.com",
+    "theme":"this is a test project",
+  },
+  "sources":[
+    {
+      "downloadSourceType":"channel",
+      "downloadSourceId":"UCHiPO7yxQp9Mvm1HkeL73hA",
+      "uploadTargetType":"playlist",
+      "uploadTargetId":"PLIPOJGlufsbVXLSBoM_utjoiAD93V4c63",
+      "incrementalUpdate":true,
+      "incrementalBaseDate":"2017-08-03T00:00:00.000Z"
+    },
+    {
+      "downloadSourceType":"playlist",
+      "downloadSourceId":"PLinOXGSkpDo8Nb5mhevkBWNIBNWDTnl2f",
+      "uploadTargetType":"playlist",
+      "uploadTargetId":"PLIPOJGlufsbX7r7V8aZ4AM0VNhAr25Gnx",
+      "incrementalUpdate":false,
+      "incrementalBaseDate":""
+    }
+  ]
+}

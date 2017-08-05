@@ -1,5 +1,10 @@
 # youtuber
 
+* config
+  * manifest
+    
+
+
 http://www.jianshu.com/p/8817a7b0c8d6
 https://community.linuxmint.com/tutorial/view/1040
 
@@ -28,15 +33,5 @@ https://www.youtube.com/channel/UCRFabIivtjFbG-rrtpERyBg/featured
 http://www.meipai.com/squares/new_timeline?page=1&count=24&tid=16
 https://github.com/soimort/you-get/issues/1933
 
-
-* 安装python3 and you-get(dockerfile)
-#install python3
-RUN apt-get install libssl-dev openssl \
-    && wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz \
-    && tar xzvf Python-3.5.0.tgz \
-    && cd Python-3.5.0 \
-    && ./configure \
-    && make \
-    && make install \
-    && cd ../ \
-    && pip3 install you-get
+* Oauth
+  * [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/)

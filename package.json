@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "aws-sdk": "^2.94.0",
-    "co": "^4.6.0",
-    "co-fs": "^1.2.0",
-    "co-request": "^1.0.0",
+    "jsonfile": "^3.0.1",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "request": "^2.81.0",
     "youtube-video-api": "^0.3.7"
   }
 }

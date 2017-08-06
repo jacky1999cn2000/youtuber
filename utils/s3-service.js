@@ -7,19 +7,19 @@ let s3 = new aws.S3({
 
 module.exports = {
 
-  getManifest: function() {
+  getManifest: () => {
 
     let getParams = {
       Bucket: process.env.S3_BUCKET,
-      Key: process.env.project + '/manifest.json'
+      Key: process.env.PROJECT_NAME + '/manifest.json'
     }
 
-    let p = new Promise(function(resolve, reject) {
-      s3.getObject(getParams, function(err, data) {
+    let p = new Promise((resolve, reject) => {
+      s3.getObject(getParams, (err, data) => {
         if (err) {
           reject(err);
         }
-        resolve(data.Body.toString('utf-8'));
+        resolve(JSON.parse(data.Body.toString('utf-8')));
       });
     });
 

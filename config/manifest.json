@@ -1,24 +1,30 @@
 {
   "metadata":{
     "email":"liang.zhao.sfdc01@gmail.com",
-    "theme":"this is a test project",
+    "targetUrl":"https://www.youtube.com/channel/project1",
+    "targetName":"project1",
+    "description":"this is a test project"
   },
-  "sources":[
+  "medium":[
     {
-      "downloadSourceType":"channel",
-      "downloadSourceId":"UCHiPO7yxQp9Mvm1HkeL73hA",
-      "uploadTargetType":"playlist",
-      "uploadTargetId":"PLIPOJGlufsbVXLSBoM_utjoiAD93V4c63",
-      "incrementalUpdate":true,
-      "incrementalBaseDate":"2017-08-03T00:00:00.000Z"
+      "sourceUrl": "https://www.youtube.com/user/StevieGReds",
+      "sourcelName": "B站搬运工",
+      "sourceType":"playlist",
+      "sourceId":"PLFQPNZbW2NEnUJMNVrYVJ6Bn2Y6Xsm7ZV",
+      "targetType":"playlist",
+      "targetId":"PLIPOJGlufsbVXLSBoM_utjoiAD93V4c63",
+      "viewCount":10000,
+      "days":10000
     },
     {
-      "downloadSourceType":"playlist",
-      "downloadSourceId":"PLinOXGSkpDo8Nb5mhevkBWNIBNWDTnl2f",
-      "uploadTargetType":"playlist",
-      "uploadTargetId":"PLIPOJGlufsbX7r7V8aZ4AM0VNhAr25Gnx",
-      "incrementalUpdate":false,
-      "incrementalBaseDate":""
+      "sourceUrl": "https://www.youtube.com/channel/UCXgka_nGg5r_rjZ1l1TWyWA",
+      "sourcelName": "逗比劇",
+      "sourceType":"channel",
+      "sourceId":"UCXgka_nGg5r_rjZ1l1TWyWA",
+      "targetType":"playlist",
+      "targetId":"PLIPOJGlufsbX7r7V8aZ4AM0VNhAr25Gnx",
+      "viewCount":10000,
+      "days":7
     }
   ]
 }

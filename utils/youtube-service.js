@@ -74,7 +74,8 @@ module.exports = {
   },
 
   /*
-
+    get all videos for a specified channel or playlist
+    p.s. "channel" used ""/v3/search" which supports "publishedAfter" parameter, while "playlist" used "/v3/playlistItems" which didn't
   */
   getVideoListInfo: (credential, media, pageToken) => {
 
@@ -135,35 +136,34 @@ module.exports = {
   },
 
   /*
-
+    get stats for videos specified in id parameter (50 comma separated id is maximum per request)
   */
-  processVideoListInfo: (videoListInfo, media) => {
+  getVideoStats: (credential, videoIds) => {
 
-    let result = {};
+    let options = {
+      url: 'https://www.googleapis.com/youtube/v3/videos',
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + credential.access_token
+      },
+      qs: {
+        part: 'statistics',
+        id: videoIds
+      }
+    };
 
-    let processedItems = _.map(videoListInfo.items, (item) => {
-      return {
-        'publishedAt': item.snippet.publishedAt,
-        'title': item.snippet.title,
-        'description': item.snippet.description,
-        'videoId': media.sourceType == 'channel' ? item.id.videoId : item.contentDetails.videoId
-      };
+    let p = new Promise((resolve, reject) => {
+      request(options, (err, response, body) => {
+        if (err) {
+          console.log('request err ', err);
+          reject(err);
+        }
+        let bodyJson = JSON.parse(response.body)
+        resolve(bodyJson);
+      });
     });
 
-    result.items = processedItems;
-    result.done = typeof videoListInfo.nextPageToken == undefined;
-    result.pageToken = videoListInfo.nextPageToken;
-
-    // if(channel.incremental){
-    //   // for incremental retrieval
-    //   let filteredItems
-    //
-    // }else{
-    //   // for total retrieval
-    //
-    // }
-
-    return result;
+    return p;
   }
 
 }

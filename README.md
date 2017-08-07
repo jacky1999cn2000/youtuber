@@ -2,8 +2,10 @@
 
 * config
   * manifest
-    
 
+
+* technical notes
+  * [use await in for loops](https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop)
 
 http://www.jianshu.com/p/8817a7b0c8d6
 https://community.linuxmint.com/tutorial/view/1040

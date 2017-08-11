@@ -1,10 +1,16 @@
 'use strict';
 
+/*
+  youtube service - provide methods used to interact with several YouTube APIs 
+*/
+
 let _ = require('lodash');
 let request = require('request');
 
 module.exports = {
-
+  /*
+    check if current access_token is still valid
+  */
   isTokenValid: (credential) => {
 
     let options = {

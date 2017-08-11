@@ -8,7 +8,7 @@
   "medium":[
     {
       "sourceUrl": "https://www.youtube.com/user/StevieGReds",
-      "sourcelName": "B站搬运工",
+      "sourceName": "B站搬运工",
       "sourceType":"playlist",
       "sourceId":"PLFQPNZbW2NEnUJMNVrYVJ6Bn2Y6Xsm7ZV",
       "targetType":"playlist",
@@ -18,7 +18,7 @@
     },
     {
       "sourceUrl": "https://www.youtube.com/channel/UCXgka_nGg5r_rjZ1l1TWyWA",
-      "sourcelName": "逗比劇",
+      "sourceName": "逗比劇",
       "sourceType":"channel",
       "sourceId":"UCXgka_nGg5r_rjZ1l1TWyWA",
       "targetType":"playlist",

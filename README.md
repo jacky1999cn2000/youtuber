@@ -7,7 +7,10 @@
   * services (modularized logic for methods handling different tasks)
     * youtube
     * s3
-    
+
+* commands
+  * `make upload`: copy `./config/manifest.json` to `s3://youtube-farming/[projectname]/`
+
 * manifest
   * youtube (based on modules)
     * metadata: basic information for the project

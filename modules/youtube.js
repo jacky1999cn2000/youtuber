@@ -12,7 +12,7 @@ let credential = require('../.google-oauth2-credentials.json');
 module.exports = async() => {
 
   /*
-    if current access_token not valid, then use refresh_token to get new access_token and write it to credential file
+    1. if current access_token not valid, then use refresh_token to get new access_token and write it to credential file
   */
   let isTokenValid = await youtubeService.isTokenValid(credential);
   console.log('isTokenValid ', isTokenValid);
@@ -24,21 +24,21 @@ module.exports = async() => {
   }
 
   /*
-    get manifest from s3
+    2. get manifest from s3
   */
   let manifest = await s3Service.getManifest();
   console.log('manifest ', manifest);
 
 
   /*
-    parse manifest and get list of videos ()
+    3. parse manifest and get list of videos ()
   */
   let finalList = [];
 
   for (let media of manifest.medium) {
 
     /*
-      1. get all videos for a specified channel or playlist
+      3.1 get all videos for a specified channel or playlist
     */
     console.log('media ', media.sourceType);
 
@@ -68,7 +68,7 @@ module.exports = async() => {
     }
 
     /*
-      2. transform items to be more succinct
+      3.2 transform items to be more succinct
     */
     videoList = _.map(videoList, (item) => {
       return {
@@ -82,7 +82,7 @@ module.exports = async() => {
     });
 
     /*
-      3. get stats for all videos
+      3.3 get stats for all videos
     */
     // pluck "videoId" from videoList and create an array of videoIds
     let videoIdList = _.map(videoList, 'videoId');
@@ -124,6 +124,19 @@ module.exports = async() => {
 
     console.log('videoList ', videoList.length);
     // console.log('videoList ', videoList);
+
+    /*
+      3.4 put it in finalList
+    */
+    finalList = finalList.concat(videoList);
   }
+  // console.log('finalList ', finalList);
+  console.log('finalList ', finalList.length);
+
+  /*
+    4. split finalList into chunks of 50 items each, and upload to s3 under 'bucket/project/year-month-day/[index].json'
+  */
+  let uploaded = await s3Service.uploadVideoList(finalList);
+  console.log('uploaded ', uploaded);
 
 }

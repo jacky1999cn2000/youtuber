@@ -1,9 +1,10 @@
 {
-  "metadata":{
+  "project":{
     "email":"liang.zhao.sfdc01@gmail.com",
-    "targetUrl":"https://www.youtube.com/channel/project1",
-    "targetName":"project1",
-    "description":"this is a test project"
+    "channelUrl":"https://www.youtube.com/channel/project1",
+    "channelName":"project1",
+    "description":"this is a test project",
+    "type":"youtube"
   },
   "medium":[
     {

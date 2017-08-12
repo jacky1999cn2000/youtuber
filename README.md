@@ -13,7 +13,12 @@
 
 * manifest
   * youtube (based on modules)
-    * metadata: basic information for the project
+    * project: basic information for the project
+      * email: email address used to login this channel
+      * channelUrl: channel url
+      * channelName: channel name
+      * description: channel description
+      * type: type of the channel (indicate where the video come from: youtube, meipai, youku...)
     * medium: an array of media from which the code will retrieve video lists
       * sourceUrl: url for the source
       * sourceName: name of the source

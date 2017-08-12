@@ -1,9 +1,5 @@
 'use strict';
 
-/*
-  youtube service - provide methods used to interact with several YouTube APIs 
-*/
-
 let _ = require('lodash');
 let request = require('request');
 

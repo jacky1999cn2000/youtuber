@@ -6,39 +6,17 @@ let s3 = new aws.S3({
 });
 
 module.exports = {
-  /*
-    get manifest.json
-  */
-  getManifest: () => {
-
-    let params = {
-      Bucket: process.env.S3_BUCKET,
-      Key: process.env.PROJECT_NAME + '/manifest.json'
-    }
-
-    let p = new Promise((resolve, reject) => {
-      s3.getObject(params, (err, data) => {
-        if (err) {
-          reject(err);
-        }
-        resolve(JSON.parse(data.Body.toString('utf-8')));
-      });
-    });
-
-    return p;
-  },
 
   /*
     upload video list to s3
   */
-  uploadVideoList: (videoList) => {
+  uploadVideoList: (type, name, index, videoList) => {
 
     let date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
-    let project = process.env.PROJECT_NAME;
-    let key = `${project}/${year}-${month}-${day}.json`;
+    let key = `${type}/${name}/${year}-${month}-${day}/${index}.json`;
 
     let body = JSON.stringify(videoList);
 

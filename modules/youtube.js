@@ -1,26 +1,23 @@
 'use strict';
 
 let _ = require('lodash');
-let jsonfile = require('jsonfile');
 let moment = require('moment');
 
 let s3Service = require('../services/s3');
 let youtubeService = require('../services/youtube');
-
-let credential = require('../.google-oauth2-credentials.json');
 
 module.exports = async(manifest) => {
 
   /*
     1. if current access_token not valid, then use refresh_token to get new access_token and write it to credential file
   */
+  let credential = manifest.credential;
   let isTokenValid = await youtubeService.isTokenValid(credential);
   console.log('isTokenValid ', isTokenValid);
 
   if (!isTokenValid) {
     let access_token = await youtubeService.refreshToken(credential);
     credential.access_token = access_token;
-    jsonfile.writeFileSync('./.google-oauth2-credentials.json', credential);
   }
 
   /*
@@ -127,9 +124,18 @@ module.exports = async(manifest) => {
   console.log('finalList ', finalList.length);
 
   /*
-    3. split finalList into chunks of 50 items each, and upload to s3 under 'bucket/project/year-month-day/[index].json'
+    3. split finalList into chunks of 50 items each, and upload to s3 under 'bucket/type/project/year-month-day/[index].json'
   */
-  let uploaded = await s3Service.uploadVideoList(finalList);
-  console.log('uploaded ', uploaded);
+  let batchList = [];
+  // break down finalList to multiple batches (each batch has up to 50 videoIds
+  while (finalList.length) {
+    batchList.push(finalList.splice(0, 50));
+  }
+  let index = 1;
+  for (let batch of batchList) {
+    let uploaded = await s3Service.uploadVideoList(manifest.project.type, manifest.project.channelName, index, finalList);
+    console.log('index ', index, ',uploaded ', uploaded);
+    index++;
+  }
 
 }

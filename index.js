@@ -1,10 +1,11 @@
 'use strict';
 
-let s3Service = require('./services/s3');
 let youtube = require('./modules/youtube');
+let settings = require('./config/settings');
 
 async function execute() {
-  let manifest = await s3Service.getManifest();
+
+  let manifest = require('./config/' + settings.target);
   console.log('manifest ', manifest);
 
   switch (manifest.project.type) {

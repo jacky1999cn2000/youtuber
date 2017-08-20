@@ -12,7 +12,7 @@
   * settings.json
     * target: indicate which manifest file to load for process
   * manifest files
-    * youtube 
+    * [youtube](https://github.com/jacky1999cn2000/youtuber/blob/master/notes/youtube.md) 
 
 
 * technical notes

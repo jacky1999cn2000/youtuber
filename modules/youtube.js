@@ -62,6 +62,7 @@ module.exports = async(manifest) => {
     */
     videoList = _.map(videoList, (item) => {
       return {
+        'processed': false,
         'uploaded': false,
         'targetType': media.targetType,
         'targetId': media.targetId,

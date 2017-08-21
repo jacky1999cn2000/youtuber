@@ -62,6 +62,7 @@ module.exports = async(manifest) => {
     */
     videoList = _.map(videoList, (item) => {
       return {
+        'uploaded': false,
         'targetType': media.targetType,
         'targetId': media.targetId,
         'publishedAt': item.snippet.publishedAt,
@@ -133,7 +134,7 @@ module.exports = async(manifest) => {
   }
   let index = 1;
   for (let batch of batchList) {
-    let uploaded = await s3Service.uploadVideoList(manifest.project.type, manifest.project.channelName, index, finalList);
+    let uploaded = await s3Service.uploadVideoList(manifest.project.type, manifest.project.channelName, index, batch);
     console.log('index ', index, ',uploaded ', uploaded);
     index++;
   }

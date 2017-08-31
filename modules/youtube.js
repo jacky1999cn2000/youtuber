@@ -129,9 +129,9 @@ module.exports = async(manifest) => {
     3. split finalList into chunks of 50 items each, and upload to s3 under 'bucket/type/project/year-month-day/[index].json'
   */
   let batchList = [];
-  // break down finalList to multiple batches (each batch has up to 50 videoIds
+  // break down finalList to multiple batches (each batch has up to 100 videoIds)
   while (finalList.length) {
-    batchList.push(finalList.splice(0, 50));
+    batchList.push(finalList.splice(0, 100));
   }
   let index = 1;
   for (let batch of batchList) {

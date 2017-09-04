@@ -131,7 +131,7 @@ module.exports = async(manifest) => {
   let batchList = [];
   // break down finalList to multiple batches (each batch has up to 100 videoIds)
   while (finalList.length) {
-    batchList.push(finalList.splice(0, 50));
+    batchList.push(finalList.splice(0, 100));
   }
   let index = 1;
   for (let batch of batchList) {

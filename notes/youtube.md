@@ -70,4 +70,7 @@
 * Oauth
   * [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/)
 
-* Edit S3 object online if needed (go to `config/s3` folder for more information)
+* edit json
+  * download json into `./json` folder
+  * beautify json `https://codebeautify.org/online-json-editor`
+  * edit file and use `make upload` to upload file

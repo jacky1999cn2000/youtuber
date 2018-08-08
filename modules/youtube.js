@@ -62,7 +62,8 @@ module.exports = async(manifest) => {
       return {
         'downloaded': false,
         'converted': false,
-        'watermark': false,
+        'watermarked': false,
+        'cropped': false,
         'uploaded': false,
         'targetType': media.targetType,
         'targetId': media.targetId,

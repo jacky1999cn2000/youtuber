@@ -13,8 +13,7 @@
     * expires_in: 3600 *(default)*
     * client_id: google app client_id *(not used in this project)*
     * client_secret: google app client_secret *(not used in this project)*
-    * access_token: access_token *(retrieved from Oauth Playground)*
-    * refresh_token:  refresh_token *(retrieved from Oauth Playground)*
+    * apiKey: apiKey *(retrieved from Oauth Playground)*
   * medium: an array of media from which the code will retrieve video lists
     * sourceUrl: url for the source
     * sourceName: name of the source
@@ -38,8 +37,7 @@
       "expires_in": 3600,
       "client_id": "client_id",
       "client_secret": "client_secret",
-      "access_token": "access_token",
-      "refresh_token": "refresh_token"
+      "apiKey": "apiKey"
     },
     "medium":[
       {
@@ -66,5 +64,10 @@
   }
   ```
 
+* create google app
+  * follow [this link](https://www.slickremix.com/docs/get-api-key-for-youtube/)
+
 * Oauth
   * [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/)
+
+* Edit S3 object online if needed (go to `config/s3` folder for more information)

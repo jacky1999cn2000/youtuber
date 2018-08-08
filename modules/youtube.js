@@ -9,16 +9,9 @@ let youtubeService = require('../services/youtube');
 module.exports = async(manifest) => {
 
   /*
-    1. if current access_token not valid, then use refresh_token to get new access_token and write it to credential file
+    1. load credential
   */
   let credential = manifest.credential;
-  let isTokenValid = await youtubeService.isTokenValid(credential);
-  console.log('isTokenValid ', isTokenValid);
-
-  if (!isTokenValid) {
-    let access_token = await youtubeService.refreshToken(credential);
-    credential.access_token = access_token;
-  }
 
   /*
     2. parse manifest and get list of videos ()
@@ -46,7 +39,10 @@ module.exports = async(manifest) => {
       pageToken = response_videolistinfo.nextPageToken;
       running = typeof pageToken != "undefined";
       videoList = _.union(videoList, response_videolistinfo.items);
+      console.log('has next page ',running);
     } while (running);
+
+    console.log('raw videoList size ',videoList.length);
 
     // for "playlist", filter items based on days ("channel" already did so via "publishedAfter" parameter in search)
     if (media.sourceType == 'playlist') {
@@ -56,6 +52,8 @@ module.exports = async(manifest) => {
         return publishedAt > targetDate;
       });
     }
+
+    console.log('videoList size after filtering date ',videoList.length);
 
     /*
       2.2 transform items to be more succinct
@@ -114,15 +112,13 @@ module.exports = async(manifest) => {
         return item.viewCount >= media.viewCount;
       });
 
-    console.log('videoList ', videoList.length);
-    // console.log('videoList ', videoList);
+    console.log('videoList size after filtering stats and viewCount ',videoList.length);
 
     /*
       2.4 put it in finalList
     */
     finalList = finalList.concat(videoList);
   }
-  // console.log('finalList ', finalList);
   console.log('finalList ', finalList.length);
 
   /*

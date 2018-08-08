@@ -6,6 +6,6 @@ services:
       - .:/usr/src/app
       - ${HOME}/.aws:/root/.aws
     environment:
-      S3_BUCKET: "youtube-farming"
+      S3_BUCKET: "youtube-douyin"
     working_dir: "/usr/src/app"
     entrypoint: "/usr/src/app/node_modules/nodemon/bin/nodemon.js -L --ignore node_modules/ --ignore public/ --ignore .tmp/ index.js"

@@ -21,6 +21,7 @@
     * sourceId: id of the source (extracted from url - some channel doesn't have id, but playlist always has id)
     * targetType: type of the target (typically a playlist)
     * targetId: id of the target
+    * description: used to update each video's description
     * viewCount: code will filter out videos whose view count below this value (use reasonable values based on when the video was published)
     * days: code will calculate a target date (today - days), and will filter out videos that published before the target date (if move the entire channel the first time, probably use a larger value like 1000; for periodical update, use a reasonable value)
   ```
@@ -47,6 +48,7 @@
         "sourceId":"PLFQPNZbW2NEnUJMNVrYVJ6Bn2Y6Xsm7ZV",
         "targetType":"playlist",
         "targetId":"PLIPOJGlufsbVXLSBoM_utjoiAD93V4c63",
+        "description": "订阅抖音精品收藏 和最热门的视频不期而遇: https://bit.ly/2ATJOMr ",
         "viewCount":10000,
         "days":10000
       },
@@ -57,6 +59,7 @@
         "sourceId":"UCXgka_nGg5r_rjZ1l1TWyWA",
         "targetType":"playlist",
         "targetId":"PLIPOJGlufsbX7r7V8aZ4AM0VNhAr25Gnx",
+        "description": "订阅抖音精品收藏 和最热门的视频不期而遇: https://bit.ly/2ATJOMr ",
         "viewCount":10000,
         "days":7
       }

@@ -66,7 +66,7 @@ module.exports = async(manifest) => {
         'targetId': media.targetId,
         'publishedAt': item.snippet.publishedAt,
         'title': item.snippet.title,
-        'description': item.snippet.description,
+        'description': media.description,
         'videoId': media.sourceType == 'channel' ? item.id.videoId : item.contentDetails.videoId
       };
     });

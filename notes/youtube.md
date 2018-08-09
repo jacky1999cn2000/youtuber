@@ -13,7 +13,7 @@
     * expires_in: 3600 *(default)*
     * client_id: google app client_id *(not used in this project)*
     * client_secret: google app client_secret *(not used in this project)*
-    * apiKey: apiKey *(retrieved from Oauth Playground)*
+    * apiKey: apiKey *(use apiKey in this project for convenience since it's all read operations, loader project, on the other hand, needs to use Oauth since it requires scopes and insert operation)*
   * medium: an array of media from which the code will retrieve video lists
     * sourceUrl: url for the source
     * sourceName: name of the source
@@ -69,6 +69,8 @@
 
 * create google app
   * follow [this link](https://www.slickremix.com/docs/get-api-key-for-youtube/)
+  * also create an oauth web app (will be used in loader project, and remember to set `Authorized redirect URIs` to `https://developers.google.com/oauthplayground`)
+    * ![oauth](img/1.png)
 
 * Oauth
   * [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/)

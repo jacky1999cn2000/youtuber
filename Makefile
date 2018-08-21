@@ -2,7 +2,7 @@ IMAGE=jacky1999cn2000/youtuber
 GIT_HASH=$(shell git rev-parse --short HEAD)
 
 upload:
-	aws s3 cp ./json/copy.json s3://youtube-douyin/youtube/抖音全收藏/2018-8-9/3.json --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+	aws s3 cp ./json/copy.json s3://youtube-douyin/youtube/抖音全收藏/2018-8-20/1.json --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
 
 install:
 	docker run -i --rm --name install -v `pwd`:/usr/src/app -w /usr/src/app node:8 npm install

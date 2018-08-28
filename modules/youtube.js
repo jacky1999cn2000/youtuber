@@ -68,8 +68,11 @@ module.exports = async(manifest) => {
         'targetType': media.targetType,
         'targetId': media.targetId,
         'publishedAt': item.snippet.publishedAt,
-        'title': item.snippet.title,
+        'title': '【抖音 Tik Tok】' + item.snippet.title,
         'description': media.description,
+        'title_en': '【Tik Tok】 ',
+        'description_en': media.description_en,
+        'tags': media.tags,
         'videoId': media.sourceType == 'channel' ? item.id.videoId : item.contentDetails.videoId
       };
     });
